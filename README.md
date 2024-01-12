@@ -4,23 +4,23 @@ Sanitizer based on the Qiling framework
 
 Currently, heap memory errors, stack memory errors, and thread error detection are supported
 
-1. heap memory errors
+### 1. heap memory errors
 
-buffer overflow/underflow
-out-of-bounds
-use-after-free
-bad/double free
-method not match
-uninitialized memory read
+- buffer overflow/underflow
+- out-of-bounds
+- use-after-free
+- bad/double free
+- method not match
+- uninitialized memory read
 
-2. stack memory errors
+### 2. stack memory errors
 
-on-stack code execution
-canary word being write
+- on-stack code execution
+- canary word being write
 
-3. thread error
+### 3. thread error
 
-data race
+- data race
 
 By default, an exception is thrown when the above code error is detected
 The User can customize their own exception handling function by inheriting DefaultException
@@ -34,22 +34,26 @@ This project is released and distributed under free software license GPLv2 and l
 
 ## Installation
 
-1. Clone the repository
+### 1. Clone the repository
 
+```
 $ git clone https://github.com/readermall/ql-sanitizer
+```
 
-2. Clone the qiling subrepository
+### 2. Clone the qiling subrepository
 
+```
 $ cd ql-sanitizer
 $ git submodule update --init --recursive
+```
 
-3. Install the dependencies of the Qiling framework
+### 3. Install the dependencies of the Qiling framework
 
 please refer to the specific installation method from https://github.com/qilingframework/qiling or https://qiling.io/
 
 ## Examples
 
-1. Detect heap overflow
+### 1. Detect heap overflow
 
 ```python
 $ cd test-cases
@@ -169,7 +173,7 @@ address : 0x5655c1a3, write value : 0x1:
 <qiling.arch.register.QlRegisterManager object at 0x7f10f0b1cd90>
 ```
 
-2. Detect stack canary
+### 2. Detect stack canary
 
 ```
 $ cd test-cases
@@ -208,7 +212,7 @@ stack address : 0x7ff3cd06, write value : 0x3232323232323232:
 <qiling.arch.register.QlRegisterManager object at 0x7ff692d87c10>
 ```
 
-3. Detect data race
+### 3. Detect data race
 
 ```
 $ cd test-cases
